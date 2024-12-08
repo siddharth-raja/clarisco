@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687029934885",
+    "project_id": "clarisco-9e5ed",
+    "storage_bucket": "clarisco-9e5ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687029934885:android:70b154d443a3844b9f98cc",
+        "android_client_info": {
+          "package_name": "com.example.clarisco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1-u2fVsDrEHCujXbYSXF_pKzE3ORwwr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
