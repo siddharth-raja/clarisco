@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -8,7 +7,14 @@ class Task extends StatelessWidget {
   final String tittle;
   final String priority;
   final int year;
-  const Task({super.key, required this.time, required this.tittle, required this.priority, required this.year});
+
+  const Task({
+    super.key,
+    required this.time,
+    required this.tittle,
+    required this.priority,
+    required this.year,
+  });
 
   Color getRandomColor() {
     final Random random = Random();
@@ -47,38 +53,56 @@ class Task extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.all(6),
+      padding: EdgeInsets.all(screenWidth * 0.015),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.2,
-        width: MediaQuery.of(context).size.width * 0.4,
+        height: screenHeight * 0.2,
+        width: screenWidth * 0.45,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(12)
+          borderRadius: BorderRadius.circular(screenWidth * 0.03),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: EdgeInsets.all(screenWidth * 0.03),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.035,
-                width: MediaQuery.of(context).size.width * 0.35,
+                height: screenHeight * 0.035,
+                width: screenWidth * 0.35,
                 decoration: BoxDecoration(
                   color: getRandomColor(),
-                  borderRadius: BorderRadius.circular(6)
+                  borderRadius: BorderRadius.circular(screenWidth * 0.015),
                 ),
               ),
-              const SizedBox(height: 5,),
-              Text(tittle, style: const TextStyle(fontSize: 15),),
+              SizedBox(height: screenHeight * 0.005),
+              Text(
+                tittle,
+                style: TextStyle(fontSize: screenWidth * 0.04),
+              ),
               const Spacer(),
-              Text('Priority: $priority'),
+              Text('Priority: $priority', style: TextStyle(fontSize: screenWidth * 0.035),),
               Row(
                 children: [
-                  const Text('Time left: '),
-                  Text(timeRemaining(time, year), style: TextStyle(color: timeRemaining(time, year) == 'Overdue' ? Colors.red : Colors.green, fontWeight: FontWeight.w600),)
+                  Text(
+                    'Time left: ',
+                    style: TextStyle(fontSize: screenWidth * 0.035),
+                  ),
+                  Text(
+                    timeRemaining(time, year),
+                    style: TextStyle(
+                      color: timeRemaining(time, year) == 'Overdue'
+                          ? Colors.red
+                          : Colors.green,
+                      fontWeight: FontWeight.w600,
+                      fontSize: screenWidth * 0.035,
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

@@ -178,7 +178,7 @@ class _HomeState extends State<Home> {
               child: ListView(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    height: 180,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -186,53 +186,55 @@ class _HomeState extends State<Home> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Row(
-                            children: [
-                              Text('Tasks', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                              SizedBox(width: 5,),
-                              Icon(Icons.info_outline_rounded, size: 20,),
-                              Spacer(),
-                              Text('Last 7 Days',style: TextStyle(fontWeight: FontWeight.w500),)
-                            ],
-                          ),
-                          const SizedBox(height: 10,),
-                          Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.6,
-                                    child: Text('You marked $taskCount tasks as completed in this period.', style: const TextStyle(fontWeight: FontWeight.w500),),
-                                  ),
-                                  const SizedBox(height: 10,),
-                                  Container(
-                                    height: 45,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(30)
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Row(
+                              children: [
+                                Text('Tasks', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+                                SizedBox(width: 5,),
+                                Icon(Icons.info_outline_rounded, size: 20,),
+                                Spacer(),
+                                Text('Last 7 Days',style: TextStyle(fontWeight: FontWeight.w500),)
+                              ],
+                            ),
+                            const SizedBox(height: 10,),
+                            Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width * 0.5,
+                                      child: Text('You marked $taskCount tasks as completed in this period.', style: const TextStyle(fontWeight: FontWeight.w500),),
                                     ),
-                                    child: const Center(
-                                      child: Text('See all', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Spacer(),
-                              const Icon(Icons.task, size: 80, color: Colors.blue,)
-                            ],
-                          )
-                        ],
+                                    const SizedBox(height: 10,),
+                                    Container(
+                                      height: 45,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(30)
+                                      ),
+                                      child: const Center(
+                                        child: Text('See all', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                const Spacer(),
+                                Icon(Icons.task, size: MediaQuery.of(context).size.height * 0.09, color: Colors.blue,)
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 15,),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    height: 180,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -259,7 +261,7 @@ class _HomeState extends State<Home> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.6,
+                                    width: MediaQuery.of(context).size.width * 0.5,
                                     child: Text('You checked in to $goalCount goals in this period.', style: const TextStyle(fontWeight: FontWeight.w500),),
                                   ),
                                   const SizedBox(height: 10,),
@@ -277,7 +279,7 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
                               const Spacer(),
-                              const Icon(Icons.adjust_sharp, size: 80, color: Color.fromARGB(255, 215, 200, 67),)
+                              Icon(Icons.adjust_sharp, size: MediaQuery.of(context).size.height * 0.09, color: const Color.fromARGB(255, 215, 200, 67),)
                             ],
                           )
                         ],
@@ -286,7 +288,7 @@ class _HomeState extends State<Home> {
                   ),
                   const SizedBox(height: 15,),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    height: 180,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -313,7 +315,7 @@ class _HomeState extends State<Home> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.6,
+                                    width: MediaQuery.of(context).size.width * 0.5,
                                     child: const Text('You have saved \$65,000 in this period.', style: TextStyle(fontWeight: FontWeight.w500),),
                                   ),
                                   const SizedBox(height: 10,),
@@ -331,7 +333,7 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
                               const Spacer(),
-                              const Icon(Icons.money, size: 80, color: Colors.greenAccent,)
+                              Icon(Icons.money, size: MediaQuery.of(context).size.height * 0.09, color: Colors.greenAccent,)
                             ],
                           )
                         ],

@@ -235,30 +235,46 @@ class _ProfileState extends State<Profile> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 30),
-                  child: GridView.builder(
-                    primary: false,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisSpacing: 10,
-                      crossAxisCount: 4,
-                    ),
-                    itemCount: badgesList.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(6)
-                            ),
-                            child: Center(
-                              child: Icon(badgesList[index]['icon'], color: badgesList[index]['gained'] ? Colors.green : Colors.grey, size: 35,),
-                            ),
-                          ),
-                          const SizedBox(height: 5,),
-                          Text(badgesList[index]['text'], style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13),)
-                        ],
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      int crossAxisCount = (constraints.maxWidth / 100).floor();
+
+                      return GridView.builder(
+                        primary: false,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: crossAxisCount,
+                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 15,
+                          childAspectRatio: 1,
+                        ),
+                        itemCount: badgesList.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Container(
+                                height: constraints.maxWidth * 0.2,
+                                width: constraints.maxWidth * 0.2,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    badgesList[index]['icon'],
+                                    color: badgesList[index]['gained'] ? Colors.green : Colors.grey,
+                                    size: constraints.maxWidth * 0.07,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                badgesList[index]['text'],
+                                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                              ),
+                              const SizedBox(height: 5),
+                            ],
+                          );
+                        },
                       );
                     },
                   ),
